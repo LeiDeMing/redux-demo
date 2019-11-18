@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
- import styled from 'styled-components'
- import store from '../store'
- 
- class PostBody extends Component {
-   render () {
-    const { comments } = this.props
-     return (
-       <Wrap>
-       {comments.length} 评论
-       </Wrap>
-     )
-   }
- }
- 
- export default PostBody
- 
- const Wrap = styled.div`
+import styled from 'styled-components'
+import store from '../store'
+
+class PostBody extends Component {
+  render() {
+    const { comments, id, posts } = this.props
+    const post = posts.find(
+      t => t.id === id
+    )
+    return (
+      <Wrap>
+        <p>
+          {post.title}
+        </p>
+        <p>
+          {comments.length} 评论
+        </p>
+      </Wrap>
+    )
+  }
+}
+
+export default PostBody
+
+const Wrap = styled.div`
    background-color: #fff;
    width: 400px;
    margin: 30px auto;

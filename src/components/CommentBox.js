@@ -14,14 +14,17 @@ class PostComment extends Component {
     }
     addComment = () => {
         const { text } = this.state
-        const { id, addComment } = this.props
-        const comment = { id: shotrId(), text }
+        const { postId, addComment } = this.props
+        const comment = { id: postId, text }
         store.dispatch({ type: 'ADD_COMMENT', comment })
     }
     render() {
-        const { text } = this.state
-        const comments = store.getState().comments
-        const commentList = comments.map(comment => (
+        const { state: { text }, props: { comments, postId } } = this
+        console.log(comments, postId)
+        const currentComments = comments.filter(
+            t => t.id === postId
+        )
+        const commentList = currentComments.map(comment => (
             <li key={comment.id}>{comment.text}</li>
         ))
         return (
