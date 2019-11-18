@@ -6,13 +6,7 @@ import { loadPosts } from '../actions/post'
 
 class App extends Component {
   componentDidMount() {
-    const uri = `http://localhost:3389/data`
-    axios.get(uri).then(
-      res => {
-        const posts = res.data
-        this.props.loadPosts(posts)
-      }
-    )
+    this.props.loadPosts()
   }
   render() {
     return (

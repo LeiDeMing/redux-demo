@@ -11,6 +11,7 @@
     "react-scripts": "3.2.0",
     "redux": "^4.0.4",
     "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
     "shortid": "^2.2.15",
     "styled-components": "^4.4.1"
   },
