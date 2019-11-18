@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import Main from '../components/Main'
 import axios from 'axios'
-import store from '../store'
+import { connect } from 'react-redux'
+import { loadPosts } from '../actions/post'
 
 class App extends Component {
   componentDidMount() {
@@ -9,7 +10,7 @@ class App extends Component {
     axios.get(uri).then(
       res => {
         const posts = res.data
-        store.dispatch({ type: 'LOAD_POSTS', posts })
+        this.props.loadPosts(posts)
       }
     )
   }
@@ -19,4 +20,6 @@ class App extends Component {
     )
   }
 }
-export default App
+export default connect(null, {
+  loadPosts
+})(App)
