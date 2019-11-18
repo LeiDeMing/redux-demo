@@ -20,7 +20,7 @@ class PostComment extends Component {
     }
     render() {
         const { text } = this.state
-        const comments = store.getState()
+        const comments = store.getState().comments
         const commentList = comments.map(comment => (
             <li key={comment.id}>{comment.text}</li>
         ))
