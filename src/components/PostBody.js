@@ -5,9 +5,10 @@ import store from '../store'
 class PostBody extends Component {
   render() {
     const { comments, id, posts } = this.props
+    console.log(posts)
     const post = posts.find(
       t => t.id === id
-    )
+    ) || {}
     return (
       <Wrap>
         <p>

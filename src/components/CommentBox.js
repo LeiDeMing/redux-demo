@@ -21,7 +21,6 @@ class PostComment extends Component {
     }
     render() {
         const { state: { text }, props: { comments, postId } } = this
-        console.log(comments, postId)
         const currentComments = comments.filter(
             t => t.id === postId
         )

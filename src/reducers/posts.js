@@ -10,7 +10,12 @@ const initialState = [
   ]
   
   const posts = (state = initialState, action) => {
-    return state
+    switch (action.type) {
+      case 'LOAD_POSTS':
+        return action.posts
+      default: 
+        return state
+    }
   }
   
   export default posts
