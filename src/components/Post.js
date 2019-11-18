@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 class Post extends Component {
   render() {
-    const { comments, match, posts } = this.props
+    const { comments, match, posts , addComment } = this.props
     const { id } = match.params
     return (
       <Wrap>
@@ -13,7 +13,7 @@ class Post extends Component {
           <PostBody id={id} posts={posts} comments={comments} />
         </Upper>
         <Bottom>
-          <CommentBox postId={id} comments={comments} />
+          <CommentBox postId={id} comments={comments} addComment={addComment} />
         </Bottom>
       </Wrap>
     )

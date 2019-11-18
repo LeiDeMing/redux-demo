@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import store from '../store'
 import shotrId from 'shortid'
 import styled from 'styled-components'
+import { addComment } from '../actions'
 
 class PostComment extends Component {
     state = {
@@ -16,7 +17,7 @@ class PostComment extends Component {
         const { text } = this.state
         const { postId, addComment } = this.props
         const comment = { id: postId, text }
-        store.dispatch({ type: 'ADD_COMMENT', comment })
+        this.props.addComment(comment)  
     }
     render() {
         const { state: { text }, props: { comments, postId } } = this
